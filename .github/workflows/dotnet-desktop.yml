@@ -56,9 +56,7 @@ jobs:
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
     
     - name: Build/Publish
-      uses: EasyDesk/action-dotnet-publish@v1.0.0
-      with:
-        output-dir: Build
+      run: dotnet publish 
 
     - name: Remove the pfx
       run: Remove-Item -path $env:Wap_Project_Directory\snapper_TemporaryKey.pfx.pfx
